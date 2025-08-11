@@ -1,0 +1,228 @@
+# 🎯 AI Resume Optimizer
+
+A full-stack web application that analyzes resumes against job descriptions and provides intelligent feedback to improve your job application success rate.
+
+## ✨ Features
+
+- **Smart Resume Analysis**: Upload your resume and job description to get an intelligent match score
+- **Actionable Suggestions**: Receive specific recommendations to improve your resume
+- **Keyword Matching**: Advanced algorithm identifies missing skills and technologies
+- **Real-time Analysis**: Get instant feedback as you make changes
+- **Clean UI**: Simple, responsive interface built with React
+- **Fast Backend**: Python FastAPI server for quick analysis
+
+## 🛠️ Tech Stack
+
+### Frontend
+- **React** - Modern UI framework
+- **Vite** - Fast development server and build tool
+- **Custom CSS** - Clean, responsive styling
+
+### Backend
+- **Python 3.11** - Core language
+- **FastAPI** - High-performance web framework
+- **Uvicorn** - ASGI server
+- **Keyword Analysis** - Smart matching algorithm
+
+### Environment
+- **Conda** - Python environment management
+- **CORS** - Cross-origin resource sharing enabled
+
+## 🚀 Quick Start
+
+### Prerequisites
+- **Node.js** (v20+)
+- **Python** (3.11+)
+- **Conda** (recommended for Python environment)
+
+### Installation
+
+1. **Clone the repository**
+   ```bash
+   git clone <your-repo-url>
+   cd resume-ai
+   ```
+
+2. **Set up Python environment**
+   ```bash
+   conda create -n resume-ai python=3.11 -y
+   conda activate resume-ai
+   pip install fastapi uvicorn python-dotenv requests
+   ```
+
+3. **Install frontend dependencies**
+   ```bash
+   npm install
+   ```
+
+### Running the Application
+
+1. **Start the backend server**
+   ```bash
+   conda activate resume-ai
+   cd backend
+   python main.py
+   ```
+   Backend will run on `http://localhost:3001`
+
+2. **Start the frontend development server**
+   ```bash
+   npm run dev
+   ```
+   Frontend will run on `http://localhost:5173`
+
+3. **Open your browser**
+   Navigate to `http://localhost:5173` and start analyzing resumes!
+
+## 📖 How to Use
+
+1. **Enter Your Resume**: Paste your resume text in the first textarea
+2. **Enter Job Description**: Paste the job posting in the second textarea
+3. **Click Analyze**: Hit the "Analyze Match" button
+4. **Review Results**: See your match score and improvement suggestions
+
+### Example Input
+
+**Resume:**
+```
+John Smith - Software Developer
+3 years experience with React, JavaScript, and Node.js
+Built responsive web applications and REST APIs
+Experience with Git, MongoDB, and AWS deployment
+```
+
+**Job Description:**
+```
+We're hiring a Full Stack Developer with:
+- React experience required (2+ years)
+- Node.js and Express.js knowledge
+- Database experience (MongoDB preferred)
+- Cloud platform experience (AWS/Azure)
+- Git version control proficiency
+```
+
+**Expected Output:**
+- **Score**: 85%
+- **Suggestions**: 
+  - Add experience with: express.js, azure
+  - Include specific metrics and achievements in your experience section
+  - Tailor your summary to highlight skills mentioned in the job description
+
+## 🏗️ Project Structure
+
+```
+resume-ai/
+├── backend/
+│   ├── main.py              # FastAPI application
+│   ├── .env                 # Environment variables
+│   └── requirements.txt     # Python dependencies
+├── src/
+│   ├── App.jsx             # Main React component
+│   ├── index.css           # Custom styling
+│   └── main.jsx            # React entry point
+├── public/                 # Static assets
+├── package.json           # Node.js dependencies
+├── vite.config.js         # Vite configuration
+└── README.md              # This file
+```
+
+## 🔧 Configuration
+
+### Backend Configuration
+
+The backend uses environment variables for configuration. Create a `.env` file in the `backend/` directory:
+
+```env
+# Optional: Add Hugging Face API key for future AI model integration
+HF_API_KEY=your_api_key_here
+```
+
+### Frontend Configuration
+
+The frontend is configured to connect to the backend at `http://localhost:3001`. Update the API URL in `src/App.jsx` if needed:
+
+```javascript
+const res = await fetch("http://localhost:3001/api/analyze", {
+  // ...
+});
+```
+
+## 🎯 How It Works
+
+### Analysis Algorithm
+
+1. **Keyword Extraction**: Identifies technical skills and requirements from the job description
+2. **Resume Scanning**: Searches for matching keywords in the resume text
+3. **Score Calculation**: Calculates match percentage based on keyword coverage
+4. **Suggestion Generation**: Provides actionable recommendations for improvement
+
+### Supported Keywords
+
+The system recognizes common technology keywords including:
+- Programming languages: React, Node.js, Python, JavaScript, Java
+- Databases: MongoDB, PostgreSQL, SQL
+- Tools: Git, Docker, AWS, Azure
+- Frameworks: Express, Vue, Angular
+- And many more...
+
+## 🚀 Deployment
+
+### Backend Deployment
+
+1. **Install dependencies**:
+   ```bash
+   pip install -r backend/requirements.txt
+   ```
+
+2. **Run with production server**:
+   ```bash
+   uvicorn main:app --host 0.0.0.0 --port 3001
+   ```
+
+### Frontend Deployment
+
+1. **Build for production**:
+   ```bash
+   npm run build
+   ```
+
+2. **Serve static files** using your preferred web server
+
+## 🔮 Future Enhancements
+
+- [ ] **PDF Upload**: Support for PDF and DOCX file uploads
+- [ ] **AI Integration**: Connect to advanced language models for deeper analysis
+- [ ] **Cover Letter Generation**: AI-powered cover letter creation
+- [ ] **User Accounts**: Save analysis history and track improvements
+- [ ] **ATS Optimization**: Applicant Tracking System compatibility checks
+- [ ] **Industry-Specific Analysis**: Tailored feedback for different job sectors
+
+## 🤝 Contributing
+
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
+
+## 📝 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## 🙋 Support
+
+If you encounter any issues or have questions:
+
+1. Check the [Issues](../../issues) section
+2. Create a new issue with detailed information
+3. Include error messages and steps to reproduce
+
+## 🎉 Acknowledgments
+
+- Built with modern web technologies
+- Inspired by the need for better job application tools
+- Thanks to the open-source community for amazing tools and libraries
+
+---
+
+**Happy job hunting!** 🎯✨
